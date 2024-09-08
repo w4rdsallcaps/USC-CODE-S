@@ -1,0 +1,108 @@
+
+
+Budget Summary (Run):
+Income: 30000
+Expenses:
+food
+: 1000 (Date: 30/20/1000)
+chicken
+: 100 (Date: 10/12/3200)
+Total Expenses: 1100
+Remaining Balance: 28900
+
+
+Budget Summary (Run):
+Income: 200
+Expenses:
+food
+: 1 (Date: 23/10/2030)
+Total Expenses: 1
+Remaining Balance: 199
+
+
+Budget Summary (Run):
+Income: 30000
+Expenses:
+food
+: 20 (Date: 21/32/1000)
+seven elevivel
+: 10000000 (Date: 10/10/1000)
+Total Expenses: 10000020
+Remaining Balance: -9970020
+
+
+Budget Summary (Run):
+Income: 200000
+Expenses:
+food
+: 2000 (Date: 17/12/2023)
+stripper's
+: 500 (Date: 18/12/2023)
+hore
+: 1000 (Date: 18/12/2023)
+cocain
+: 3000 (Date: 18/12/2023)
+Total Expenses: 6500
+Remaining Balance: 193500
+
+
+Budget Summary (Run):
+Income: 3000
+Expenses:
+food
+: 200 (Date: 17/12/2023)
+Total Expenses: 200
+Remaining Balance: 2800
+
+
+Budget Summary (Run):
+Income: 2000
+Expenses:
+strippers
+: 2000 (Date: 17/12/2023)
+hores
+: 500 (Date: 17/12/2023)
+food
+: 200 (Date: 17/12/1234)
+Total Expenses: 2700
+Remaining Balance: -700
+
+
+Budget Summary (Run):
+Income: 20000
+Expenses:
+food
+: 200 (Date: 26/12/2023)
+Total Expenses: 200
+Remaining Balance: 19800
+
+
+Budget Summary (Run):
+Income: 30000
+Expenses:
+stripper
+: 500 (Date: 17/12/2023)
+hores
+: 2000 (Date: 17/12/2023)
+Total Expenses: 2500
+Remaining Balance: 27500
+
+
+Budget Summary (Run):
+Income: 30000
+Expenses:
+food
+: 300 (Date: 18/12/2023)
+what the gfreak 
+: 10000 (Date: 18/12/1000)
+Total Expenses: 10300
+Remaining Balance: 19700
+
+
+Budget Summary (Run):
+Income: 1000
+Expenses:
+10
+: 100 (Date: 01/27/2323)
+Total Expenses: 100
+Remaining Balance: 900

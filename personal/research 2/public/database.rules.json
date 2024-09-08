@@ -1,0 +1,11 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "gps": {
+      ".read": true,  // Allow read access to the 'gps' node
+      ".write": true,  // Allow write access to the 'gps' node
+      ".validate": "newData.hasChildren(['latitude', 'longitude']) && newData.child('latitude').isNumber() && newData.child('longitude').isNumber()" // Validate the structure of the GPS data
+    }
+  }
+}
