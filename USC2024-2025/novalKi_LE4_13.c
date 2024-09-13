@@ -18,11 +18,11 @@ int main(){
     averageGrade = (mark1 + mark2 + mark3 + mark4)/4;
     
     // Check if average grade is valid (between 0 and 100)
-    if (100 > averageGrade && averageGrade >= 50 ){
+    if (100 >= averageGrade && averageGrade >= 50 ){
         // If average grade is 50 or above, print "PASSED"
         printf("Final Grade: %d PASSED", averageGrade);
     }
-    else if ( 0 < averageGrade && averageGrade < 50 ) {
+    else if ( 0 <= averageGrade && averageGrade < 50 ) {
         // If average grade is below 50, print "FAILED"
         printf("Final Grade: %d FAILED", averageGrade);
     }
