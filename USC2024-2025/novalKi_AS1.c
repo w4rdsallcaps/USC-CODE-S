@@ -44,35 +44,46 @@ int main (){
     }
 
     else if (whatDoYouWant == 3){
+        // display and ask for users input
         printf("Enter the initial velocity: ");
         scanf("%f",&initialVelocity);
         printf("enter the height: ");
         scanf("%f", &height);
-        
+        //solve for discriminantand finalvelocity
         discriminant = (initialVelocity*initialVelocity) - (2*gravity*height);
-
         finalVelocity = sqrt(initialVelocity*initialVelocity+2*gravity*height);
+        //display the final velocity
         printf("the final Velocity is %d ", finalVelocity);
+
+        //if discriminant is equals to or greated that 0 then do calculations
             if (discriminant >= 0) {
+
                 // Use the quadratic formula to calculate time
                 t1 = (-initialVelocity + sqrt(discriminant)) / gravity;
                 t2 = (-initialVelocity - sqrt(discriminant)) / gravity;
                 
-                // We discard negative time values
+                // if both numbers are above or equals0
                 if (t1 >= 0 && t2 >= 0) {
                     printf("Time to hit the ground: %.2f seconds or %.2f seconds\n", t1, t2);
                 } 
+
+                // if only t1 is above or equals to 0
                 else if (t1 >= 0) {
                     printf("Time to hit the ground: %.2f seconds\n", t1);
                 } 
+
+                // if only t2 is above or equals to 0
                 else if (t2 >= 0) {
                     printf("Time to hit the ground: %.2f seconds\n", t2);
                 } 
+
+                //if time is not real
                 else {
                     printf("No valid solution: object does not reach the ground.\n");
                 }
+                
+                 // If the discriminant is negative, no real solution exists for time
             } else {
-                // If the discriminant is negative, no real solution exists for time
                 printf("No real solution exists for the given height and velocity.\n");
             }
     }
