@@ -1,3 +1,14 @@
+/*
+============================================================================
+FILE : novalKi_LE3.12
+AUTHOR : Kineth Montaus Noval
+DESCRIPTION :  a program that allows you to choose between a program that will calculate the area and volume of a cylinder.
+ a program that will calculate the account balance after we deposited the amount of money for a given period (in years) with interest rate. 
+ a program that will calculate the final velocity and time of travel of a baseball that is thrown downward from a tower of a certain height and initial speed. 
+COPYRIGHT : 09/05/24
+============================================================================
+*/
+
 #include <stdio.h>
 #include <math.h>
 
