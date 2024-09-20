@@ -81,12 +81,16 @@ int main (){
                 else {
                     printf("No valid solution: object does not reach the ground.\n");
                 }
-                
+
                  // If the discriminant is negative, no real solution exists for time
             } else {
-                printf("No real solution exists for the given height and velocity.\n");
-            }
+                printf("No real solution exists for the given height and velocity.\n");     
+       }
     }
+    else {
+        printf("Invalid choice. Please choose a valid option.\n");
+    }
+    //end the program 
     return 0;
 }
 
