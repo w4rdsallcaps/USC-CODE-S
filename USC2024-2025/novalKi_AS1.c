@@ -108,9 +108,10 @@ int main (){
     //function
     int balance(int depositAmount, int period, int interestRate ){
         //declaring more stuff
-        int finalBalance; 
+        int finalBalance ;
+        float rate; 
         //computations
-        float rate = interestRate /100.0;
+         rate = interestRate /100.0;
         finalBalance = depositAmount * pow((1+rate), period);
         //end function with final balance being the resultant
         return finalBalance;
