@@ -50,6 +50,7 @@ int main (){
 }
 
 void programOne(float pi, float radius, float heightOfCylinder){
+    
     printf("Enter the radius of the cylinder: ");
     scanf("%f", &radius);
     printf("Enter the height of the cylinder: "); 
@@ -104,3 +105,4 @@ void programThree(float gravity, float height, float initialVelocity){
         printf("No real solution exists for the given height and velocity.\n");
     }
 }
+
