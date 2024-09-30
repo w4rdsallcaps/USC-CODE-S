@@ -1,3 +1,14 @@
+/*
+============================================================================
+FILE : novalKi_LE5_12.c
+AUTHOR : Kineth Montaus Noval
+DESCRIPTION : Create a program that lets the user choose an operation (power problem solver, 
+factorial problem solver, or finding roots for quadratic equations using quadratic formula) from the menu.
+ The program will always go back to the menu and lets the user choose again an operation until the user would like to quit using the app.
+COPYRIGHT : 30/09/2024
+============================================================================
+*/
+
 #include <stdio.h>
 #include <math.h>
 
