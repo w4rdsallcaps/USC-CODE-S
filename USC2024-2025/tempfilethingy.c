@@ -1,35 +1,60 @@
-#include<stdio.h>
-#include<math.h>
-int main(){
-    const float gravity = 9.81;
-    float  height, initialVelocity,discriminant, time, finalVelocity,t1,t2;
-    printf("Enter the initial velocity: ");
-    scanf("%f",&initialVelocity);
-    printf("enter the height: ");
-    scanf("%f", &height);
-    
-    discriminant = (initialVelocity*initialVelocity) - (2*gravity*height);
+#include <stdio.h>
+#include <unistd.h>
 
-    finalVelocity = sqrt(initialVelocity*initialVelocity+2*gravity*height);
-    printf("the final Velocity is %d ", finalVelocity);
-    if (discriminant >= 0) {
-        // Use the quadratic formula to calculate time
-        t1 = (-initialVelocity + sqrt(discriminant)) / gravity;
-        t2 = (-initialVelocity - sqrt(discriminant)) / gravity;
+int main() {
+    int i, j;
+    float principleMoney = 10000, interestRate = 0.02, time = 6, FutureValue, debtBalance = 10250;
+
+    const char *months[] = {
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    };
+
+    printf("Principle Money: %.2f\n", principleMoney);
+    printf("Interest Rate: %0.2f\n", interestRate);
+    printf("Time: %0.2f years\n", time);
+    printf("Interest: %0.2f\n", interestRate * principleMoney);
+
+    // Headers for Future Value Table
+    printf("\n%-10s %-15s\n", "Year", "Future Value");
+
+    for (i = 1; i <= 6; i++) {
+        // Print year with left-aligned width of 10 characters
+        printf("%-10d", i);
+
+        // Print Future Value with left-aligned width of 15 characters and two decimal places
+        principleMoney += 200;  // Increase principleMoney by 200 each year
+        printf("%-15.2f\n", principleMoney);
         
-        // We discard negative time values
-        if (t1 >= 0 && t2 >= 0) {
-            printf("Time to hit the ground: %.2f seconds or %.2f seconds\n", t1, t2);
-        } else if (t1 >= 0) {
-            printf("Time to hit the ground: %.2f seconds\n", t1);
-        } else if (t2 >= 0) {
-            printf("Time to hit the ground: %.2f seconds\n", t2);
-        } else {
-            printf("No valid solution: object does not reach the ground.\n");
-        }
-    } else {
-        // If the discriminant is negative, no real solution exists for time
-        printf("No real solution exists for the given height and velocity.\n");
+        sleep(1);  // Sleep for 1 second for visibility
     }
+
+    printf("\nPaying debt");
+    for (i = 1; i <= 5; i++) {
+        printf(".");
+        sleep(1);  // Sleep for 1 second for visibility
+    }
+
+    // Headers for Debt Payment Table
+    printf("\n\n%-15s %-25s\n", "Month", "Remaining Debt Balance");
+
+    i = 0;  // Initialize 'i' to 0 to start from January
+
+    // Modify the condition to stop the loop when debtBalance is less than or equal to zero
+    while (debtBalance > 0 && i < 12) {  // Stop when debtBalance drops below zero
+        // Print Month name with left-aligned width of 15 characters
+        printf("%-15s", months[i]);  // Print the current month name
+        i++;  // Move to the next month
+
+        // Subtract 2500 from debtBalance and ensure no negative values
+        debtBalance -= 2500;
+        if (debtBalance < 0) {
+            debtBalance = 0;  // Set to 0 if balance goes negative
+        }
+
+        // Print the remaining debt balance with left-aligned width of 25 characters and two decimal places
+        printf("%-25.2f\n", debtBalance);
+    }
+
     return 0;
 }
