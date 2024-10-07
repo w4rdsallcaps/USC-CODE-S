@@ -15,6 +15,7 @@ int main(){
     printf("interest: %0.2f\n",interestRate*principleMoney);
 
     printf("Year"); 
+
     for(j=1; j<= spaces; j++){
         printf(" ");
     }
@@ -56,4 +57,5 @@ int main(){
         sleep(1);
     }
 return 0;  
+//rawrr
 }
