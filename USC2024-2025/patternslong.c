@@ -34,26 +34,27 @@ int main(){
         // to the next line
         printf("\n");
     }
-        printf("\nnumber 3 \n");
-        //for loop to make the counter
-        for(i = 1; i <= layers; i++){
-            //for loop to print spaces making it go to the spaces ( print the same amount of spaces as layers);
-            for(j = 1; j <= layers - i; j++){
-                printf(" ");
-                }
-            //for loop to print * (print * for every (layers - (layers - every counter)) - 1 )
-            for(k = 1; k <=  layers - (layers - i) - 1; k++){
-                printf("*");
+    
+    printf("\nnumber 3 \n");
+    //for loop to make the counter
+    for(i = 1; i <= layers; i++){
+        //for loop to print spaces making it go to the spaces ( print the same amount of spaces as layers);
+        for(j = 1; j <= layers - i; j++){
+            printf(" ");
             }
-            //display the numbers
-            printf("%d",i);
-            //display the * again same process lang 
-            for(k = 1; k <=  layers - (layers - i) - 1; k++){
-                printf("*");
-            }
-            //to the next line
-            printf("\n");
+        //for loop to print * (print * for every (layers - (layers - every counter)) - 1 )
+        for(k = 1; k <=  layers - (layers - i) - 1; k++){
+            printf("*");
         }
+        //display the numbers
+        printf("%d",i);
+        //display the * again same process lang 
+        for(k = 1; k <=  layers - (layers - i) - 1; k++){
+            printf("*");
+        }
+        //to the next line
+        printf("\n");
+    }
 
         printf("\nnumber 4 \n");
         //for loop to make the counter
@@ -145,7 +146,7 @@ int main(){
                 printf("*");
             } 
             //print the counter
-            printf("%d",i);
+            printf("%d",&i);
             //for loop to print the spaces between two numbers( ((layers - counter)*2) -1)
             for(k = 0; k <= ((layers - i)*2) - 1 ;k++ ){
             printf(" ");

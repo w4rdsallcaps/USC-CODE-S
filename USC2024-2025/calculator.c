@@ -19,21 +19,21 @@ int main(){
         switch (operator) {
             case '+':
                 answer = integer1 + integer2;
-                printf("The SUM between %.2f and %.2f is %.2f\n", integer1, integer2, answer);
+                printf("The SUM between %.0f and %.0f is %.0f\n", integer1, integer2, answer);
                 break;
             case '-':
                 answer = integer1 - integer2;
-                printf("The DIFFERENCE between %.2f and %.2f is %.2f\n", integer1, integer2, answer);
+                printf("The DIFFERENCE between %.0f and %.0f is %.0f\n", integer1, integer2, answer);
                 break;
             case '*':
                 answer = integer1 * integer2;
-                printf("The PRODUCT between %.2f and %.2f is %.2f\n", integer1, integer2, answer);
+                printf("The PRODUCT between %.0f and %.0f is %.2f\n", integer1, integer2, answer);
                 break;
             case '/':
                 // Handle division by zero
                 if (integer2 != 0) {
                     answer = integer1 / integer2;
-                    printf("The QUOTIENT between %.2f and %.2f is %.2f\n", integer1, integer2, answer);
+                    printf("The QUOTIENT between %.0f and %.0f is %.2f\n", integer1, integer2, answer);
                 } else {
                     printf("Error: Division by zero is not allowed.\n");
                 }

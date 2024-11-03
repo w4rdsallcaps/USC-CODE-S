@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "*.embeddedhtml": "html",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "novalki_le6_13": "cpp",
+        "math.h": "c"
     }
 }

@@ -107,6 +107,7 @@ void patternTwo(int nth)
             if(column < row || column > row)
             {
                 printf("*");
+
             }
         }
 

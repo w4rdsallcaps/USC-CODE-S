@@ -54,7 +54,13 @@ int main() {
 
         // Print the remaining debt balance with left-aligned width of 25 characters and two decimal places
         printf("%-25.2f\n", debtBalance);
+        sleep(1);
     }
-
+    printf("Program complete \nClosing Program");
+    printf("\nPaying debt");
+    for (i = 1; i <= 3; i++) {
+        printf(".");
+        sleep(1);  // Sleep for 1 second for visibility
+    }
     return 0;
 }
