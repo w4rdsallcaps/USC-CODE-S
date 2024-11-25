@@ -10,15 +10,20 @@ int main(){
     tempNumberTwo = originalNumber;
 
     while(tempNumber != 0){
-        tempNumber = tempNumberTwo % 10;
-        printf("temp number: %d\n",tempNumber);
-        tempNumberTwo = tempNumberTwo / 10;
-        printf("tempNumberTwo: %d\n",tempNumberTwo);
-        sum += tempNumber;
-        Sleep(1000);
-
+        tempNumber = tempNumber / 10;
+        limit++;
     }
     
+    tempNumber = originalNumber;
+        
+    for(i = 0; i < limit; i++){
+        tempNumber = originalNumber % 10;
+        printf("temp number: %d\n",tempNumber);
+        originalNumber = originalNumber / 10;
+        printf("originalNumber = %d\n",originalNumber);
+        sum += tempNumber;
+    }
+
     if( tempNumberTwo % sum == 0 ) {
         printf("The number is a harshad number");
     }
@@ -29,13 +34,3 @@ int main(){
 }
 
 
-
-    //     tempNumber = originalNumber;
-        
-    // for(i = 0; i < limit; i++){
-    //     tempNumber = originalNumber % 10;
-    //     printf("temp number: %d\n",tempNumber);
-    //     originalNumber = originalNumber / 10;
-    //     printf("originalNumber = %d\n",originalNumber);
-    //     sum += tempNumber;
-    // }
