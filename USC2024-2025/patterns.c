@@ -188,7 +188,7 @@ void patternFour(int nth)
         printf("\n");
     }
 }
-
+c
 void patternFive(int nth)
 {
     //Pattern 5 Output: First Half
