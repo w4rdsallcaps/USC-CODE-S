@@ -1,31 +1,39 @@
-#include<stdio.h>
-#include<windows.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-int main(){
-    int originalNumber,tempNumber = 0,tempNumberTwo = 0  ,limit = 0,i, sum = 0 ;
+char *askingNumber(){
+    static char buffer[100];
     printf("Give me a number: ");
-    scanf("%d",&originalNumber);
-    tempNumber = originalNumber;
-    tempNumberTwo = originalNumber;
-    while(tempNumber != 0){
-        tempNumber = tempNumber / 10;
-        limit++;
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+        fprintf(stderr, "Error reading input.\n");
+        exit(EXIT_FAILURE);
     }
-    
-        tempNumber = originalNumber;
-    for(i = 0; i < limit; i++){
-        tempNumber = originalNumber % 10;
-        originalNumber = originalNumber / 10;
-        sum = sum + tempNumber;
+    buffer[strcspn(buffer, "\n")] = '\0';
+    return buffer;
 
-    }
-    if( tempNumberTwo % sum == 0 ) {
-        printf("The number is a harshad number");
-    }
-    else{
-        printf("The number is not a harshad number");
-    }
-    return 0;
 }
 
 
+// Function to validate and return an integer
+int validateInt(const char *input) {
+    char *endptr;
+    int value = strtol(input, &endptr, 10);
+
+    if (*endptr != '\0') {
+        fprintf(stderr, "Invalid input. Please enter a valid integer.\n");
+        exit(EXIT_FAILURE); 
+    }
+
+    return value; 
+}
+
+
+int main() {
+    char *input = askingNumber();
+    int number = validateInt(input);
+
+    // Print the validated integer
+    printf("You entered: %d\n", number);
+    return 0;
+}
