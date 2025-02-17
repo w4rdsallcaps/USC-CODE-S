@@ -18,7 +18,6 @@ revision date author description of the change
 ============================================================================
 FUNCTION : function name
 DESCRIPTION : a program that extracts and adds the two least significant digits of an integer.
-ARGUMENTS : (list all parameters pass in the function)
 dataType variableName - brief description
 dataType variableName - brief description
 .
