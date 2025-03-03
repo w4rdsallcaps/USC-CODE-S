@@ -4,7 +4,8 @@
         "stdio.h": "c",
         "novalki_le6_13": "cpp",
         "math.h": "c",
-        "Cfp.C": "cpp"
+        "Cfp.C": "cpp",
+        "typeinfo": "c"
     },
     "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/gcc.exe"
 }
