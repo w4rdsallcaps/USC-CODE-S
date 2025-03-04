@@ -1,72 +1,276 @@
 #include <stdio.h>
-#include <windows.h> 
+#include <stdlib.h>
+#include <string.h>
 
-// Swap function with visualization
-void swap(int *a, int *b){
-    Sleep(1000);
-    printf("Swapping %d and %d\n", *a, *b);  // Print swap details
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+typedef struct Motorcycle {
+    char motorcycle_name[100];
+    char motorcycle_brand[100];
+    int year_model;
+    char plate_number[100];
+    struct Motorcycle *next;
+    struct Motorcycle *prev;
+} Motorcycle;
 
-// Partition function
-int pivotfinder(int arr[], int lowest, int highest){
-    int pivot = arr[highest];  // Choosing the last element as pivot
-    int i = lowest - 1;
+Motorcycle *head = NULL;
 
-    printf("\nStarting partition with pivot = %d\n", pivot);
+Motorcycle *createMotorcycle(char name[], char brand[], int year, char plate[]);
+void getUserInput(char name[], char brand[], int *year, char plate[]);
+void prepend(char name[], char brand[], int year, char plate[]);
+void append(char name[], char brand[], int year, char plate[]);
+void insert(int position, char name[], char brand[], int year, char plate[]);
+void removeNode(int position);
+void edit(int position, char name[], char brand[], int year, char plate[]);
+void display();
+void displayReverse();
 
-    for(int j = lowest; j < highest; j++){
-        if(arr[j] < pivot){
-            i++;
-            swap(&arr[i], &arr[j]);  // Move smaller elements to the left
+int main() {
+    int choice;
+    do {
+        printf("\nChoose an action:");
+        printf("\n1.) Append\n2.) Prepend\n3.) Insert at Position\n4.) Edit\n5.) Remove\n6.) Display\n7.) Display Reverse\n8.) Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        char name[100], brand[100], plate[100];
+        int year, position;
+
+        switch (choice) {
+            case 1:
+                getUserInput(name, brand, &year, plate);
+                append(name, brand, year, plate);
+                break;
+            case 2:
+                getUserInput(name, brand, &year, plate);
+                prepend(name, brand, year, plate);
+                break;
+            case 3:
+                printf("Enter position to insert: ");
+                scanf("%d", &position);
+                getUserInput(name, brand, &year, plate);
+                insert(position, name, brand, year, plate);
+                break;
+            case 4:
+                printf("Enter position to edit: ");
+                scanf("%d", &position);
+                getUserInput(name, brand, &year, plate);
+                edit(position, name, brand, year, plate);
+                break;
+            case 5:
+                printf("Enter position to remove: ");
+                scanf("%d", &position);
+                removeNode(position);
+                break;
+            case 6:
+                display();
+                break;
+            case 7:
+                displayReverse();
+                break;
+            case 8:
+                makenull();
+            case 9:
+                first();
+            case 10:
+                last();
+            case 11:
+                retrieve();
+            case 12:
+                search();
+            case 13:
+                empty();
+            case 14:
+                printf("Exiting program.\n");
+                break;
+            default:
+                printf("Invalid choice!\n");
         }
-    }
-    swap(&arr[i + 1], &arr[highest]);  // Place pivot in the correct position
 
-    printf("Array after partition: ");
-    for(int k = lowest; k <= highest; k++){
-        printf("%d ", arr[k]);
-        
-    }
-    printf("\n");
-    Sleep(1000);
-    return i + 1;
-}
-
-// QuickSort function
-void quicksort(int arr[], int lowest, int highest){
-    if (lowest < highest){
-        int pivot = pivotfinder(arr, lowest, highest);
-
-        quicksort(arr, lowest, pivot - 1);  // Sort left part
-        quicksort(arr, pivot + 1, highest); // Sort right part
-    }
-}
-
-// Function to print array
-void printarr(int size, int arr[]){
-    for(int i = 0; i < size; i++){
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-}
-
-// Main function
-int main(){
-    int arr[] = {23, 91, 47, 15, 88, 34, 6, 72, 55, 39, 18, 64, 98, 11, 45, 79, 2, 33, 87, 50, 29, 67, 81, 
-        95, 12, 74, 3, 58, 42, 20, 99, 8, 66, 31, 14, 56, 22, 93, 85, 4, 25, 60, 9, 70, 44, 32, 97, 77, 1, 48};
-    int size = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original array: ");
-    printarr(size, arr);
-    
-    printf("\nSorting process:\n");
-    quicksort(arr, 0, size - 1);
-
-    printf("\nSorted array: ");
-    printarr(size, arr);
+    } while (choice != 8);
 
     return 0;
+}
+
+
+Motorcycle *createMotorcycle(char name[], char brand[], int year, char plate[]) {
+    Motorcycle *newMotorcycle = (Motorcycle *)malloc(sizeof(Motorcycle));
+    if (!newMotorcycle) {
+        printf("Memory allocation failed.\n");
+        return NULL;
+    }
+    strcpy(newMotorcycle->motorcycle_name, name);
+    strcpy(newMotorcycle->motorcycle_brand, brand);
+    newMotorcycle->year_model = year;
+    strcpy(newMotorcycle->plate_number, plate);
+    newMotorcycle->next = NULL;
+    newMotorcycle->prev = NULL;
+    return newMotorcycle;
+}
+
+void getUserInput(char name[], char brand[], int *year, char plate[]) {
+    printf("Enter motorcycle name: ");
+    getchar(); 
+    fgets(name, 100, stdin);
+    name[strcspn(name, "\n")] = 0;
+
+    printf("Enter motorcycle brand: ");
+    fgets(brand, 100, stdin);
+    brand[strcspn(brand, "\n")] = 0;
+
+    printf("Enter year model: ");
+    scanf("%d", year);
+    getchar(); 
+
+    printf("Enter plate number: ");
+    fgets(plate, 100, stdin);
+    plate[strcspn(plate, "\n")] = 0;
+}
+
+void prepend(char name[], char brand[], int year, char plate[]) {
+    Motorcycle *newMotorcycle = createMotorcycle(name, brand, year, plate);
+    if (!newMotorcycle) return;
+
+    if (head == NULL) {
+        head = newMotorcycle;
+    } else {
+        newMotorcycle->next = head;
+        head->prev = newMotorcycle;
+        head = newMotorcycle;
+    }
+}
+
+void append(char name[], char brand[], int year, char plate[]) {
+    Motorcycle *newMotorcycle = createMotorcycle(name, brand, year, plate);
+    if (!newMotorcycle) return;
+
+    if (head == NULL) {
+        head = newMotorcycle;
+        return;
+    }
+
+    Motorcycle *temp = head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newMotorcycle;
+    newMotorcycle->prev = temp;
+}
+
+void insert(int position, char name[], char brand[], int year, char plate[]) {
+    if (position <= 0) {
+        prepend(name, brand, year, plate);
+        return;
+    }
+    Motorcycle *newMotorcycle = createMotorcycle(name, brand, year, plate);
+    if (!newMotorcycle) return;
+
+    Motorcycle *temp = head;
+    for (int i = 0; temp != NULL && i < position - 1; i++) {
+        temp = temp->next;
+    }
+
+    if (temp == NULL) {
+        printf("Position out of range! Appending to the end.\n");
+        append(name, brand, year, plate);
+        return;
+    }
+
+    newMotorcycle->next = temp->next;
+    newMotorcycle->prev = temp;
+
+    if (temp->next != NULL) {
+        temp->next->prev = newMotorcycle;
+    }
+
+    temp->next = newMotorcycle;
+}
+
+void removeNode(int position) {
+    if (head == NULL) {
+        printf("The list is empty.\n");
+        return;
+    }
+
+    Motorcycle *temp = head;
+
+    if (position == 0) {
+        head = temp->next;
+        if (head != NULL) {
+            head->prev = NULL;
+        }
+        free(temp);
+        return;
+    }
+
+    for (int i = 0; temp != NULL && i < position; i++) {
+        temp = temp->next;
+    }
+
+    if (temp == NULL) {
+        printf("Position out of range!\n");
+        return;
+    }
+
+    if (temp->next != NULL) {
+        temp->next->prev = temp->prev;
+    }
+
+    if (temp->prev != NULL) {
+        temp->prev->next = temp->next;
+    }
+
+    free(temp);
+}
+
+void edit(int position, char name[], char brand[], int year, char plate[]) {
+    if (head == NULL) {
+        printf("List is empty!\n");
+        return;
+    }
+
+    Motorcycle *temp = head;
+    for (int i = 0; temp != NULL && i < position; i++) {
+        temp = temp->next;
+    }
+
+    if (temp == NULL) {
+        printf("Position out of range!\n");
+        return;
+    }
+
+    strcpy(temp->motorcycle_name, name);
+    strcpy(temp->motorcycle_brand, brand);
+    temp->year_model = year;
+    strcpy(temp->plate_number, plate);
+}
+
+void display() {
+    if (head == NULL) {
+        printf("List is empty\n");
+        return;
+    }
+
+    Motorcycle *temp = head;
+    printf("\nMotorcycle List:\n");
+    while (temp != NULL) {
+        printf("\nName: [%s]\nBrand: [%s]\nYear: [%d]\nPlate: [%s]\n", temp->motorcycle_name, temp->motorcycle_brand, temp->year_model, temp->plate_number);
+        temp = temp->next;
+    }
+}
+
+void displayReverse() {
+    if (head == NULL) {
+        printf("List is empty!\n");
+        return;
+    }
+
+    Motorcycle *temp = head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+
+    printf("\nMotorcycle List [Reverse]:\n");
+    while (temp != NULL) {
+        printf("\nName: [%s]\nBrand: [%s]\nYear: [%d]\nPlate: [%s]\n", temp->motorcycle_name, temp->motorcycle_brand, temp->year_model, temp->plate_number);
+        temp = temp->prev; 
+    }
 }
