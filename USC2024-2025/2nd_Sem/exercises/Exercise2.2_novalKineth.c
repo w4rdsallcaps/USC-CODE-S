@@ -2,18 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX 100
+
 typedef struct Motorcycle {
-    char motorcycle_name[100];
-    char motorcycle_brand[100];
+    char motorcycle_name[MAX];
+    char motorcycle_brand[MAX];
     int year_model;
-    char plate_number[100];
+    char plate_number[MAX];
     struct Motorcycle *next;
     struct Motorcycle *prev;
 } Motorcycle;
 
 Motorcycle *head = NULL;
 
-// Function Prototypes
 Motorcycle *createMotorcycle(char name[], char brand[], int year, char plate[]);
 void getUserInput(char name[], char brand[], int *year, char plate[]);
 void prepend(char name[], char brand[], int year, char plate[]);
@@ -30,22 +31,15 @@ Motorcycle *retrieve(int position);
 Motorcycle *search(char name[]);
 int empty();
 
-// New Modular Functions
-void displayMotorcycleDetails(Motorcycle *motorcycle, int position);
-void displayFirstNodes();
-void displayLastNodes();
-void displaySpecificNode(int position);
-void searchAndDisplayMotorcycle(char name[]);
-void checkListEmpty();
-
 int main() {
     int choice;
     do {
-        char name[100], brand[100], plate[100];
+        char name[MAX], brand[MAX], plate[MAX];
         int year, position;
+        Motorcycle *found;
 
         printf("\nChoose an action:");
-        printf("\n1.) Append\n2.) Prepend\n3.) Insert at Position\n4.) Edit\n5.) Remove\n6.) Display\n7.) Display Reverse\n8.) Make list Null\n9.) Display First Nodes\n10.) Display Last Nodes\n11.) Return a specific node in the list\n12.) Search node with specific item name\n13.) Check if list is empty\n14.) EXIT\n");
+        printf("\n1.) Append\n2.) Prepend\n3.) Insert at Position\n4.) Edit\n5.) Remove\n6.) Display\n7.) Display Reverse\n8.) Make list Null\n9.) Return first node\n10.) Return Last Node\n11.) Return a specific node in the list\n12.) search node with specific item name\n13.) empty\n14.) EXIT\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -84,39 +78,65 @@ int main() {
             case 8:
                 makenull();
                 break;
+
             case 9:
-                displayFirstNodes();
+                found = first();
+                if (found) {
+                    printf("First motorcycle:\nName: [%s]\nBrand: [%s]\nYear: [%d]\nPlate: [%s]\n", 
+                           found->motorcycle_name, found->motorcycle_brand, found->year_model, found->plate_number);
+                } else {
+                    printf("No motorcycles in the list.\n");
+                }
                 break;
             case 10:
-                displayLastNodes();
+                found = last();
+                if (found) {
+                    printf("Last motorcycle:\nName: [%s]\nBrand: [%s]\nYear: [%d]\nPlate: [%s]\n", 
+                           found->motorcycle_name, found->motorcycle_brand, found->year_model, found->plate_number);
+                } else {
+                    printf("No motorcycles in the list.\n");
+                }
                 break;
             case 11:
                 printf("Enter position to retrieve: ");
                 scanf("%d", &position);
-                displaySpecificNode(position);
+                found = retrieve(position);
+                if (found) {
+                    printf("Retrieved Motorcycle:\nName: [%s]\nBrand: [%s]\nYear: [%d]\nPlate: [%s]\n",
+                           found->motorcycle_name, found->motorcycle_brand, found->year_model, found->plate_number);
+                } else {
+                    printf("Invalid position!\n");
+                }
                 break;
             case 12:
                 printf("Enter motorcycle name to search: ");
                 getchar();
-                fgets(name, 100, stdin);
+                fgets(name, MAX, stdin);
                 name[strcspn(name, "\n")] = 0;
-                searchAndDisplayMotorcycle(name);
+                found = search(name);
+                if (found) {
+                    printf("Motorcycle found:\nName: [%s]\nBrand: [%s]\nYear: [%d]\nPlate: [%s]\n",
+                           found->motorcycle_name, found->motorcycle_brand, found->year_model, found->plate_number);
+                } else {
+                    printf("Motorcycle not found.\n");
+                }
                 break;
             case 13:
-                checkListEmpty();
+                printf("Is list empty? %s\n", empty() ? "Yes" : "No");
                 break;
             case 14:
                 printf("Exiting program.\n");
-                makenull(); // Clean up before exiting
+                makenull(); 
                 return 0;
             default:
                 printf("Invalid choice!\n");
         }
 
-    } while (choice != 14);
+    } while (choice != 14); 
 
     return 0;
 }
+
 
 Motorcycle *createMotorcycle(char name[], char brand[], int year, char plate[]) {
     Motorcycle *newMotorcycle = (Motorcycle *)malloc(sizeof(Motorcycle));
@@ -199,7 +219,7 @@ void insert(int position, char name[], char brand[], int year, char plate[]) {
     if (temp == NULL) {
         printf("Position out of range! Appending to the end.\n");
         append(name, brand, year, plate);
-        free(newMotorcycle);
+        free(newMotorcycle); // Free the unused motorcycle node
         return;
     }
 
@@ -353,115 +373,4 @@ Motorcycle *search(char name[]) {
 
 int empty() {
     return head == NULL;
-}
-
-// New Modular Functions
-void displayMotorcycleDetails(Motorcycle *motorcycle, int position) {
-    if (motorcycle) {
-        printf("\nPosition: %d\n", position);
-        printf("Name: [%s]\n", motorcycle->motorcycle_name);
-        printf("Brand: [%s]\n", motorcycle->motorcycle_brand);
-        printf("Year: [%d]\n", motorcycle->year_model);
-        printf("Plate: [%s]\n", motorcycle->plate_number);
-    }
-}
-
-void displayFirstNodes() {
-    if (head == NULL) {
-        printf("List is empty.\n");
-        return;
-    }
-
-    printf("\n--- First Nodes ---\n");
-    Motorcycle *temp = head;
-    int position = 0;
-    while (temp != NULL) {
-        displayMotorcycleDetails(temp, position);
-        temp = temp->next;
-        position++;
-        
-        if (position >= 5) {
-            printf("(Showing first 5 nodes. Use Display option to see all.)\n");
-            break;
-        }
-    }
-}
-
-void displayLastNodes() {
-    if (head == NULL) {
-        printf("List is empty.\n");
-        return;
-    }
-
-    Motorcycle *temp = head;
-    int total_nodes = 0;
-    while (temp != NULL) {
-        temp = temp->next;
-        total_nodes++;
-    }
-
-    temp = head;
-    for (int i = 0; i < total_nodes - 1; i++) {
-        temp = temp->next;
-    }
-
-    printf("\n--- Last Nodes ---\n");
-    int position = total_nodes - 1;
-    int count = 0;
-    while (temp != NULL && count < 5) {
-        displayMotorcycleDetails(temp, position);
-        temp = temp->prev;
-        position--;
-        count++;
-    }
-
-    if (count >= 5) {
-        printf("(Showing last 5 nodes. Use Display Reverse option to see all.)\n");
-    }
-}
-
-void displaySpecificNode(int position) {
-    Motorcycle *found = retrieve(position);
-    if (found) {
-        printf("\n--- Retrieved Motorcycle ---\n");
-        displayMotorcycleDetails(found, position);
-    } else {
-        printf("Invalid position!\n");
-    }
-}
-
-void searchAndDisplayMotorcycle(char name[]) {
-    Motorcycle *found = search(name);
-    if (found) {
-        printf("\n--- Motorcycle Found ---\n");
-        
-        Motorcycle *temp = head;
-        int position = 0;
-        while (temp != NULL) {
-            if (temp == found) break;
-            temp = temp->next;
-            position++;
-        }
-        
-        displayMotorcycleDetails(found, position);
-    } else {
-        printf("Motorcycle not found.\n");
-    }
-}
-
-void checkListEmpty() {
-    if (empty()) {
-        printf("List is empty.\n");
-        printf("Total Nodes: 0\n");
-    } else {
-        printf("List is not empty.\n");
-        
-        Motorcycle *temp = head;
-        int count = 0;
-        while (temp != NULL) {
-            count++;
-            temp = temp->next;
-        }
-        printf("Total Nodes: %d\n", count);
-    }
 }

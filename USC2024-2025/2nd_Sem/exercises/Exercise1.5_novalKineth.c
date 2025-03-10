@@ -68,7 +68,7 @@ int main() {
                 break;
             case 8:
                 printf("Exiting program.\n");
-                break;
+                return 0;
             default:
                 printf("Invalid choice!\n");
         }
