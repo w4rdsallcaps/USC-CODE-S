@@ -93,8 +93,7 @@ int binarySearchRecursive(int arr[], int left, int right, int query) {
     printf("\n");
     
     int mid = left + (right - left) / 2;
-    
-    // Found the element
+  
     if (arr[mid] == query) {
         return mid;
     }
