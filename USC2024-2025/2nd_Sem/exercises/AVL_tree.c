@@ -264,5 +264,28 @@ int main() {
     preOrder(root);
     printf("\n");
 
+    root = insert(root, 60);
+    printf("\nAfter inserting 60:\n");
+    /* The constructed AVL Tree would be
+            30
+           /  \
+         20   40
+        /  \    \
+       10  25    50
+                  \    
+                   60
+   */ 
+    printf("Preorder traversal of the AVL tree is \n");
+    preOrder(root);
+    printf("\n");
+
+    printf("Inorder traversal of the AVL tree is \n");
+    inOrder(root);
+    printf("\n");
+
+    printf("Postorder traversal of the AVL tree is \n");
+    postOrder(root);
+    printf("\n");
+    
     return 0;
 }
