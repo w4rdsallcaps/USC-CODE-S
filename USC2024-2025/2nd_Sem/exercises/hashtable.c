@@ -22,8 +22,7 @@ hashTable* hashTable_Create(){
             new_Hashtable->array[i] = NULL;
     }
     //return the hashtable
-    return new_Hashtable;
-
+    return;
 }
 
 //creating newNode 
@@ -125,7 +124,7 @@ void delete(hashTable** hashTable,int value){
     
     //if the index is still NULL then well yea its WRONG 
     if((*hashTable)->array[index] == NULL){
-        printf("NOTHING TO BE SEEN HERE (⓿_⓿)");
+        printf("NOTHING TO BE SEEN HERE (⓿_⓿)\n");
         return;
     }
     
