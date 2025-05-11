@@ -35,7 +35,7 @@ struct Node* newNode(int key) {
 struct Node *rightRotate(struct Node *y) {
     struct Node *x = y->left;
     struct Node *T2 = x->right;
-
+    
     // Perform rotation
     x->right = y;
     y->left = T2;
@@ -72,8 +72,8 @@ int getBalance(struct Node *node) {
     return height(node->left) - height(node->right);
 }
 
-// Recursive function to insert a key in the subtree rooted with node
 
+// Recursive function to insert a key in the subtree rooted with node
 struct Node* insert(struct Node* node, int key) {
 
     // 1. Perform the normal BST insertion
@@ -129,7 +129,9 @@ struct Node * minValueNode(struct Node* node) {
     return current;
 }
 
+
 // Recursive function to delete a node with given key from subtree
+
 struct Node* deleteNode(struct Node* root, int key) {
     // 1. Perform standard BST delete
     if (root == NULL)
@@ -143,7 +145,7 @@ struct Node* deleteNode(struct Node* root, int key) {
         // Node with only one child or no child
         if ((root->left == NULL) || (root->right == NULL)) {
             struct Node *temp = root->left ? root->left : root->right;
-
+        
             // No child case
             if (temp == NULL) {
                 temp = root;
@@ -198,6 +200,8 @@ struct Node* deleteNode(struct Node* root, int key) {
 
     return root;
 }
+
+
 
 // Preorder traversal
 void preOrder(struct Node *root) {
@@ -264,28 +268,28 @@ int main() {
     preOrder(root);
     printf("\n");
 
-    root = insert(root, 60);
-    printf("\nAfter inserting 60:\n");
-    /* The constructed AVL Tree would be
-            30
-           /  \
-         20   40
-        /  \    \
-       10  25    50
-                  \    
-                   60
-   */ 
-    printf("Preorder traversal of the AVL tree is \n");
-    preOrder(root);
-    printf("\n");
+//     root = insert(root, 60);
+//     printf("\nAfter inserting 60:\n");
+//     /* The constructed AVL Tree would be
+//             30
+//            /  \
+//          20   40
+//         /  \    \
+//        10  25    50
+//                   \    
+//                    60
+//    */ 
+//     printf("Preorder traversal of the AVL tree is \n");
+//     preOrder(root);
+//     printf("\n");
 
-    printf("Inorder traversal of the AVL tree is \n");
-    inOrder(root);
-    printf("\n");
+//     printf("Inorder traversal of the AVL tree is \n");
+//     inOrder(root);
+//     printf("\n");
 
-    printf("Postorder traversal of the AVL tree is \n");
-    postOrder(root);
-    printf("\n");
+//     printf("Postorder traversal of the AVL tree is \n");
+//     postOrder(root);
+//     printf("\n");
     
     return 0;
 }
