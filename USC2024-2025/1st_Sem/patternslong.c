@@ -18,19 +18,23 @@ int main(){
             //print the counter and go to the next line 
             printf("%d \n",i);
         }
+
         printf("\nnumber 2 \n");
-        //for loop to display the numbers 
+        //for loop to display the numbers
         for(i = 1;i <= layers; i++){
         //for loop to display the spaces (print the same amount of spaces as layers - current count )
         for(j = 1 ; j <= layers - i; j++){
             printf(" ");
-        //for loop to display * (  layers - (layers - i) - 1 )
         }
+
+        //for loop to display * (  layers - (layers - i) - 1 )
         for(k = 1; k <= layers - (layers - i) - 1 ;k++){
             printf("*");
         }
+
         //display numbers
         printf("%d",i);
+        
         // to the next line
         printf("\n");
     }

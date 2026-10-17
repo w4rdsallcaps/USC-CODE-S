@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+#define variableOne 1
+
 // Function declarations
 float quadratic1(float a, float b, float c);
 float quadratic2(float a, float b, float c);

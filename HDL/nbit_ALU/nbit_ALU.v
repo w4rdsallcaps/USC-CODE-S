@@ -1,0 +1,34 @@
+// Author: Kineth M Noval
+// Course Schedule: Tues 7:30 AM -> 10:30 AM
+// Filename: nbit_ALU.v
+
+module nbit_ALU #(parameter n = 4) (
+    input [n-1:0] A,
+    input [n-1:0] B,
+    input CB_in,
+    input [2:0] Mode,
+    output reg [n-1:0] Result,
+    output reg CB_out
+);
+
+    always @(*) begin
+      
+        CB_out = 1'b0; 
+        Result = {n{1'b0}};
+
+        case(Mode)
+            3'b000: {CB_out, Result} = A + B + CB_in;                     
+            3'b001: {CB_out, Result} = {1'b0, A} - {1'b0, B} - CB_in;     
+            3'b010: Result = A & B;                                      
+            3'b011: Result = A | B;                                       
+            3'b100: Result = A ^ B;                                       
+            3'b101: Result = ~A;                                         
+            3'b110: Result = A + 1'b1;                                   
+            3'b111: Result = A - 1'b1;                                  
+            default: Result = {n{1'b0}};
+				
+        endcase
+		  
+    end
+	 
+endmodule

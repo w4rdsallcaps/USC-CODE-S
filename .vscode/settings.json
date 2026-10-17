@@ -5,7 +5,8 @@
         "novalki_le6_13": "cpp",
         "math.h": "c",
         "Cfp.C": "cpp",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "farenfeittocelc.C": "cpp"
     },
     "C_Cpp.default.compilerPath": "C:/msys64/ucrt64/bin/gcc.exe"
 }

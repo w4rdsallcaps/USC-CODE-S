@@ -16,7 +16,7 @@ int main(){
     printf("Enter a value for N: ");
     scanf("%d", &nValue);
 
-    for (int i = 1; i <= nValue; i++){
+    for(int i = 1; i <= nValue; i++){
         //loop for space
         for (int j = 0; j <= nValue - i; j++){
             printf(" ");

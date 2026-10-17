@@ -22,7 +22,7 @@ int main(){
     displayDay(number); 
     return 0;
 }
-
+ 
 int askingDay(){// ask for a day
         int number = 0;
 

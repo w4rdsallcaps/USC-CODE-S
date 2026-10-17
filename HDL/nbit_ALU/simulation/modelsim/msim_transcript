@@ -1,0 +1,91 @@
+# Reading pref.tcl
+# do nbit_ALU_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/w4rds/Desktop/nbit_ALU {C:/Users/w4rds/Desktop/nbit_ALU/nbit_ALU.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:29:01 on Oct 17,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/w4rds/Desktop/nbit_ALU" C:/Users/w4rds/Desktop/nbit_ALU/nbit_ALU.v 
+# -- Compiling module nbit_ALU
+# 
+# Top level modules:
+# 	nbit_ALU
+# End time: 17:29:01 on Oct 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/w4rds/Desktop/nbit_ALU {C:/Users/w4rds/Desktop/nbit_ALU/tb_nbit_ALU.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:29:01 on Oct 17,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/w4rds/Desktop/nbit_ALU" C:/Users/w4rds/Desktop/nbit_ALU/tb_nbit_ALU.v 
+# -- Compiling module tb_nbit_ALU
+# 
+# Top level modules:
+# 	tb_nbit_ALU
+# End time: 17:29:01 on Oct 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_nbit_ALU
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" tb_nbit_ALU 
+# Start time: 17:29:01 on Oct 17,2026
+# Loading work.tb_nbit_ALU
+# Loading work.nbit_ALU
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ========== n-bit ALU Test (n = 4) ==========
+# --- ADD (000) ---
+# PASS | t=10000 Mode=000 A=0011 B=0010 CBin=0 -> Result=0101 CBout=0
+# PASS | t=20000 Mode=000 A=1001 B=0111 CBin=0 -> Result=0000 CBout=1
+# PASS | t=30000 Mode=000 A=1111 B=1111 CBin=0 -> Result=1110 CBout=1
+# PASS | t=40000 Mode=000 A=0101 B=0011 CBin=1 -> Result=1001 CBout=0
+# --- SUB (001) ---
+# PASS | t=50000 Mode=001 A=1001 B=0100 CBin=0 -> Result=0101 CBout=0
+# PASS | t=60000 Mode=001 A=0100 B=1001 CBin=0 -> Result=1011 CBout=1
+# PASS | t=70000 Mode=001 A=0111 B=0111 CBin=0 -> Result=0000 CBout=0
+# PASS | t=80000 Mode=001 A=1000 B=0011 CBin=1 -> Result=0100 CBout=0
+# PASS | t=90000 Mode=001 A=0000 B=0001 CBin=0 -> Result=1111 CBout=1
+# --- AND (010) ---
+# PASS | t=100000 Mode=010 A=1100 B=1010 CBin=0 -> Result=1000 CBout=0
+# PASS | t=110000 Mode=010 A=1111 B=0101 CBin=0 -> Result=0101 CBout=0
+# PASS | t=120000 Mode=010 A=0110 B=0011 CBin=0 -> Result=0010 CBout=0
+# --- OR (011) ---
+# PASS | t=130000 Mode=011 A=1100 B=1010 CBin=0 -> Result=1110 CBout=0
+# PASS | t=140000 Mode=011 A=0001 B=0100 CBin=0 -> Result=0101 CBout=0
+# PASS | t=150000 Mode=011 A=0000 B=0000 CBin=0 -> Result=0000 CBout=0
+# --- XOR (100) ---
+# PASS | t=160000 Mode=100 A=1100 B=1010 CBin=0 -> Result=0110 CBout=0
+# PASS | t=170000 Mode=100 A=1111 B=1111 CBin=0 -> Result=0000 CBout=0
+# PASS | t=180000 Mode=100 A=0101 B=0011 CBin=0 -> Result=0110 CBout=0
+# --- NOT A (101) ---
+# PASS | t=190000 Mode=101 A=0000 B=0000 CBin=0 -> Result=1111 CBout=0
+# PASS | t=200000 Mode=101 A=1010 B=0000 CBin=0 -> Result=0101 CBout=0
+# PASS | t=210000 Mode=101 A=1111 B=0000 CBin=0 -> Result=0000 CBout=0
+# --- INC A (110) ---
+# PASS | t=220000 Mode=110 A=0011 B=0000 CBin=0 -> Result=0100 CBout=0
+# PASS | t=230000 Mode=110 A=1001 B=0000 CBin=0 -> Result=1010 CBout=0
+# PASS | t=240000 Mode=110 A=1111 B=0000 CBin=0 -> Result=0000 CBout=0
+# --- DEC A (111) ---
+# PASS | t=250000 Mode=111 A=0101 B=0000 CBin=0 -> Result=0100 CBout=0
+# PASS | t=260000 Mode=111 A=1000 B=0000 CBin=0 -> Result=0111 CBout=0
+# PASS | t=270000 Mode=111 A=0000 B=0000 CBin=0 -> Result=1111 CBout=0
+# ==============================================
+# Tests passed: 27 | Tests failed: 0
+# ==============================================
+# ** Note: $finish    : C:/Users/w4rds/Desktop/nbit_ALU/tb_nbit_ALU.v(102)
+#    Time: 270 ns  Iteration: 0  Instance: /tb_nbit_ALU
+# 1
+# Break in Module tb_nbit_ALU at C:/Users/w4rds/Desktop/nbit_ALU/tb_nbit_ALU.v line 102
+# End time: 17:32:15 on Oct 17,2026, Elapsed time: 0:03:14
+# Errors: 0, Warnings: 0

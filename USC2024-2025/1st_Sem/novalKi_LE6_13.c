@@ -74,7 +74,7 @@ void factorial_problem_solver() {
     scanf("%d", &number);
 
     // Check for negative input and calculate factorial if valid
-    if (number < 0) {
+    if (number <= 0) {
         printf("Factorial is not defined for negative numbers!\n");
     } else {
         for (int i = 1; i <= number; ++i) {

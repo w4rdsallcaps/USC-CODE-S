@@ -1,0 +1,85 @@
+# Reading pref.tcl
+# do HexDig_to_7seg_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/w4rds/Desktop/HexDig_to_7Seg {C:/Users/w4rds/Desktop/HexDig_to_7Seg/hexdig_to_7seg.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:43:58 on Oct 17,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/w4rds/Desktop/HexDig_to_7Seg" C:/Users/w4rds/Desktop/HexDig_to_7Seg/hexdig_to_7seg.v 
+# -- Compiling module HexDig_to_7seg
+# 
+# Top level modules:
+# 	HexDig_to_7seg
+# End time: 16:43:58 on Oct 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/w4rds/Desktop/HexDig_to_7Seg {C:/Users/w4rds/Desktop/HexDig_to_7Seg/tb_HexDig_to_7seg.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:43:58 on Oct 17,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/w4rds/Desktop/HexDig_to_7Seg" C:/Users/w4rds/Desktop/HexDig_to_7Seg/tb_HexDig_to_7seg.v 
+# -- Compiling module tb_HexDig_to_7seg
+# 
+# Top level modules:
+# 	tb_HexDig_to_7seg
+# End time: 16:43:59 on Oct 17,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_HexDig_to_7seg
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" tb_HexDig_to_7seg 
+# Start time: 16:43:59 on Oct 17,2026
+# Loading work.tb_HexDig_to_7seg
+# Loading work.HexDig_to_7seg
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Time	 Hex	 DP	 SSeg (DP G F E D C B A)
+# 0	 0	 0	 11000000
+# 10000	 1	 0	 11111001
+# 20000	 2	 0	 10100100
+# 30000	 3	 0	 10110000
+# 40000	 4	 0	 10011001
+# 50000	 5	 0	 10010010
+# 60000	 6	 0	 10000010
+# 70000	 7	 0	 11111000
+# 80000	 8	 0	 10000000
+# 90000	 9	 0	 10010000
+# 100000	 a	 0	 10001000
+# 110000	 b	 0	 10000011
+# 120000	 c	 0	 11000110
+# 130000	 d	 0	 10100001
+# 140000	 e	 0	 10000110
+# 150000	 f	 0	 10001110
+# 160000	 0	 1	 01000000
+# 170000	 1	 1	 01111001
+# 180000	 2	 1	 00100100
+# 190000	 3	 1	 00110000
+# 200000	 4	 1	 00011001
+# 210000	 5	 1	 00010010
+# 220000	 6	 1	 00000010
+# 230000	 7	 1	 01111000
+# 240000	 8	 1	 00000000
+# 250000	 9	 1	 00010000
+# 260000	 a	 1	 00001000
+# 270000	 b	 1	 00000011
+# 280000	 c	 1	 01000110
+# 290000	 d	 1	 00100001
+# 300000	 e	 1	 00000110
+# 310000	 f	 1	 00001110
+# ** Note: $finish    : C:/Users/w4rds/Desktop/HexDig_to_7Seg/tb_HexDig_to_7seg.v(36)
+#    Time: 320 ns  Iteration: 0  Instance: /tb_HexDig_to_7seg
+# 1
+# Break in Module tb_HexDig_to_7seg at C:/Users/w4rds/Desktop/HexDig_to_7Seg/tb_HexDig_to_7seg.v line 36
+# End time: 16:55:55 on Oct 17,2026, Elapsed time: 0:11:56
+# Errors: 0, Warnings: 0

@@ -29,5 +29,12 @@ int main(){
     //display weekly pay
     printf("This is your yearly pay as a week: %.2f", WeeklyPay);
     //end program
-    return 0;
 }
+
+void = does not return anything
+
+int = returns integer 
+
+float = returns float 
+
+etc

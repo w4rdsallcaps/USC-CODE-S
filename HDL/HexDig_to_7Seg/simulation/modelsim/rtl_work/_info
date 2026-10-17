@@ -1,0 +1,61 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/w4rds/Desktop/HexDig_to_7Seg/simulation/modelsim
+vHexDig_to_7seg
+!s110 1792226638
+!i10b 1
+!s100 mn37<Pi]GTR2i;]Hg`c_i1
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I0GoQA=e8Hc51bo?j]R1KY1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1792226110
+8C:/Users/w4rds/Desktop/HexDig_to_7Seg/hexdig_to_7seg.v
+FC:/Users/w4rds/Desktop/HexDig_to_7Seg/hexdig_to_7seg.v
+!i122 0
+L0 5 34
+Z3 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z4 !s108 1792226638.000000
+!s107 C:/Users/w4rds/Desktop/HexDig_to_7Seg/hexdig_to_7seg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/w4rds/Desktop/HexDig_to_7Seg|C:/Users/w4rds/Desktop/HexDig_to_7Seg/hexdig_to_7seg.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+C:/Users/w4rds/Desktop/HexDig_to_7Seg
+Z7 tCvgOpt 0
+n@hex@dig_to_7seg
+vtb_HexDig_to_7seg
+!s110 1792226639
+!i10b 1
+!s100 PYTc4b7@JiYLcSQ;S`P<51
+R1
+IkJa@WnRK7aREH8zF7YzHD2
+R2
+R0
+w1792226227
+8C:/Users/w4rds/Desktop/HexDig_to_7Seg/tb_HexDig_to_7seg.v
+FC:/Users/w4rds/Desktop/HexDig_to_7Seg/tb_HexDig_to_7seg.v
+!i122 1
+L0 8 32
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/w4rds/Desktop/HexDig_to_7Seg/tb_HexDig_to_7seg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/w4rds/Desktop/HexDig_to_7Seg|C:/Users/w4rds/Desktop/HexDig_to_7Seg/tb_HexDig_to_7seg.v|
+!i113 1
+R5
+R6
+R7
+ntb_@hex@dig_to_7seg
